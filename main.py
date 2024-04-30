@@ -12,8 +12,10 @@ if 'og_txt' not in st.session_state:
 
 def update_data(text):
 
-    st.session_state['og_txt'] = text.lower()
-    st.session_state['display_txt'] = st.session_state['og_txt']
+    text_lowercase = text.lower()
+    
+    st.session_state['og_txt'] = text_lowercase
+    st.session_state['display_txt'] = text_lowercase
 
     st.session_state['freq'].clear()
 
@@ -22,7 +24,7 @@ def update_data(text):
     
     for i in range (97,123):
         char = chr(i)
-        count = text.count(char)
+        count = text_lowercase.count(char)
 
         if count != 0:
             temp_dict[char] = count
